@@ -40,24 +40,91 @@
 
 
 シーン
-起動画面
+起動画面(LaunchScene)
 -ルーム作成ボタン
 -ルーム入室ボタン
 
 ＜ルーム入室ボタンクリック＞
-ルーム入室画面
+ルーム入室画面(RoomJoinScene)
+-ユーザネーム入力欄
 -ルームID入力欄
 -入室ボタン
 
 ＜ルーム作成ボタンクリック＞
-ルーム画面（ホスト）
--配役等情報（ルームID・配役・人数状況・細かな設定）
+ルーム画面（ホスト）(RoomScene)
+-配役等情報（ルームID・配役・人数状況・参加者名・細かな設定）
 -カスタマイズボタン
 -ゲーム開始ボタン
 -退出ボタン
 
-ルーム画面（クライアント）
--配役等情報（ルームID・配役・人数状況・細かな設定）
+ルーム画面（クライアント）(RoomScene)
+-配役等情報（ルームID・配役・人数状況・参加者名・細かな設定）
 -準備完了ボタン
 -退出ボタン
+
+ゲーム画面（GameScene）
+朝時間
+-犠牲者表示
+-次時間移行ボタン
+
+昼時間
+-残り時間表示
+-次時間移行ボタン
+
+夕時間
+-投票結果表示
+-投票プルダウンリスト
+-次時間移行ボタン
+
+夜時間
+・人狼
+-噛み候補提示
+-噛み先プルダウンリスト
+-決定
+・占い師
+-占い結果表示
+-占い先プルダウンリスト
+-決定
+・霊能者
+-霊能結果表示
+・狩人
+-護衛先プルダウンリスト
+-決定
+・共有者
+-人狼候補提示
+・それ以外の役職
+-人狼予想
+-狐予想
+-狂人予想
+
+-次時間移行ボタン
+
+リザルト画面（GameResultScene）
+-勝敗情報
+-配役情報
+-終了ボタン（退出）
+
+
+
+スクリプト
+・Roll.cs
+役職ごとにクラスを分けられている
+・LaunchSceneManager.cs
+
+・RoomJoinSceneManager.cs
+
+・RoomCreateSceneManager.cs
+
+・RoomSceneManager.cs
+ホスト判別、セッティング情報等の受け取り表示
+・GameMorningSceneManager.cs
+・GameNoonSceneManager.cs
+・GameEveningSceneManager.cs
+・GameNightSceneManager.cs
+
+・GameResultSceneManager.cs
+
+ - ValuableManager.cs - Roll.cs
+                      - Timer.cs
+
 
