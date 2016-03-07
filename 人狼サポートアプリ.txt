@@ -112,16 +112,22 @@
 
 
 スクリプト
-・Roll.cs
+・RollManager.cs
 役職ごとにクラスを分けられている
+ - RollCoowner.cs
+ - RollDiviner.cs
+ - RollFox.cs
+ - RollKnight.cs
+ - RollMadman.cs
+ - RollMedium.cs
+ - RollVillager.cs
+ - RollWarwolf.cs
+
 ・LaunchSceneManager.cs
-
 ・RoomJoinSceneManager.cs
-
 ・RoomCreateSceneManager.cs
-
 ・RoomSceneManager.cs
-ホスト判別、セッティング情報等の受け取り表示
+
 ・GameMorningSceneManager.cs
 ・GameNoonSceneManager.cs
 ・GameEveningSceneManager.cs
@@ -129,7 +135,7 @@
 
 ・GameResultSceneManager.cs
 
- - ValuableManager.cs - Roll.cs
+ - ValuableManager.cs - RollManager.cs
                       - Timer.cs
 
 
