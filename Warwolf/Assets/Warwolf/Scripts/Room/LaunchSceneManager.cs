@@ -12,4 +12,16 @@ public class LaunchSceneManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
+    public void RoomCreateButtonPush()
+    {
+        Debug.Log("Create Button Push !!");
+    }
+
+    public void RoomJoinButtonPush()
+    {
+        Debug.Log("Join Button Push !!");
+    }
+
 }
