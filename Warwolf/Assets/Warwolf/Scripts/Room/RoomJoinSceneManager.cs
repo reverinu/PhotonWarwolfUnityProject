@@ -3,9 +3,12 @@ using System.Collections;
 
 public class RoomJoinSceneManager : MonoBehaviour {
 
+    [SerializeField]
+    Fade scene_fade = null;
+
 	// Use this for initialization
 	void Start () {
-	
+        scene_fade.FadeOut(1f);
 	}
 	
 	// Update is called once per frame
