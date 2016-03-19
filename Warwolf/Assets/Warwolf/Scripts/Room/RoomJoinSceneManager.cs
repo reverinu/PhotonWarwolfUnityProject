@@ -12,4 +12,11 @@ public class RoomJoinSceneManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
+    public void BackButtonPush()
+    {
+        Debug.Log("Back Button Push !!");
+        Application.LoadLevel("LaunchScene");
+    }
 }
