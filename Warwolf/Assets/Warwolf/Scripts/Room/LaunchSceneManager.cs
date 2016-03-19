@@ -17,11 +17,13 @@ public class LaunchSceneManager : MonoBehaviour {
     public void RoomCreateButtonPush()
     {
         Debug.Log("Create Button Push !!");
+        Application.LoadLevel("RoomCreateScene");
     }
 
     public void RoomJoinButtonPush()
     {
         Debug.Log("Join Button Push !!");
+        Application.LoadLevel("RoomJoinScene");
     }
 
 }
