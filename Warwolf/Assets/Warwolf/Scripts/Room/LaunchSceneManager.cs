@@ -14,16 +14,36 @@ public class LaunchSceneManager : MonoBehaviour {
 	}
 
 
+    [SerializeField]
+    Fade scene_fade = null;
+
     public void RoomCreateButtonPush()
     {
-        Debug.Log("Create Button Push !!");
-        Application.LoadLevel("RoomCreateScene");
+        scene_fade.FadeIn(1f);
+        StartCoroutine(ButtonPushMethod(1f, () =>
+        {
+            Debug.Log("Create Button Push !!");
+            Application.LoadLevel("RoomCreateScene");
+        }));
     }
 
     public void RoomJoinButtonPush()
     {
-        Debug.Log("Join Button Push !!");
-        Application.LoadLevel("RoomJoinScene");
+        scene_fade.FadeIn(1f);
+        StartCoroutine(ButtonPushMethod(1f, () =>
+        {
+            Debug.Log("Join Button Push !!");
+            Application.LoadLevel("RoomJoinScene");
+        }));
     }
+
+
+    private IEnumerator ButtonPushMethod(float waitTime, System.Action action)
+    {
+        yield return new WaitForSeconds(waitTime);
+        action();
+    }
+
+    
 
 }
