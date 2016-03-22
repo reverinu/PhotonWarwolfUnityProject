@@ -8,40 +8,27 @@ public class RoomSceneManager : Photon.MonoBehaviour {
     RoomValuableManager room_valuable_manager;
     
 
+    [SerializeField]
+    Text room_number_text;
+    
+
 	// Use this for initialization
 	void Start () {
 
+        GameObject room_valuable_manager_object = PhotonNetwork.Instantiate("RoomValuableManager", Vector3.zero, Quaternion.identity, 0);
 
-        PhotonNetwork.ConnectUsingSettings("0.1"); // Photonへの接続
-        PhotonNetwork.sendRate = 30; // 更新回数３０に設定
-	}
+        room_valuable_manager.GetComponent<RoomValuableManager>().is_player_num++;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
+        room_number_text.GetComponent<Text>().text = room_valuable_manager.GetComponent<RoomValuableManager>().is_player_num + "人";
 	}
 
     void OnJoinedLobby()
     {
-        // ルームのオプション設定
-        RoomOptions room_options = new RoomOptions();
-        room_options.maxPlayers = 16;
-
-        if (room_valuable_manager.GetComponent<RoomValuableManager>().is_player_num == 1)
-        {
-            PhotonNetwork.CreateRoom(
-                room_valuable_manager.GetComponent<RoomValuableManager>().room_number_text,
-                room_options,
-                null);
-        }
-        else if (room_valuable_manager.GetComponent<RoomValuableManager>().is_player_num > 1 && room_valuable_manager.GetComponent<RoomValuableManager>().is_player_num <= 16)
-        {
-            PhotonNetwork.JoinRoom(room_valuable_manager.GetComponent<RoomValuableManager>().room_number_text);
-        }
-        else
-        {
-            OnPhotonRandomJoinFailed();
-        }
+        
+        
     }
 
     void OnPhotonRandomJoinFailed()
@@ -51,7 +38,7 @@ public class RoomSceneManager : Photon.MonoBehaviour {
 
     void OnJoinedRoom()
     {
-
+        //GameObject room_valuable_manager = PhotonNetwork.Instantiate("RoomValuableManager", Vector3.zero, Quaternion.identity, 0);
     }
 
     void OnGUI()

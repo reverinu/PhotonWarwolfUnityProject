@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LaunchSceneManager : MonoBehaviour {
+public class LaunchSceneManager : Photon.MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        PhotonNetwork.ConnectUsingSettings("0.1"); // Photonへの接続
+        PhotonNetwork.sendRate = 30; // 更新回数３０に設定
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,6 +45,9 @@ public class LaunchSceneManager : MonoBehaviour {
         action();
     }
 
-    
+    void OnGUI()
+    {
+        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+    }
 
 }
